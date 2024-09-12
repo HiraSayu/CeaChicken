@@ -6,62 +6,23 @@ from fastapi import FastAPI, Depends, HTTPException, APIRouter
 import boto3
 from passlib.context import CryptContext
 from schemas import *
+from database.service.profile import insert_data, get_data_by_id
 
 
 router = APIRouter()
 
 
-# パスワードのハッシュ化設定
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-# OAuth2の設定
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
-# DynamoDBの設定
-dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
-user_table = dynamodb.Table('logindb')
-profile_table = dynamodb.Table('profile')
-
-def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
-
-def get_password_hash(password):
-    return pwd_context.hash(password)
-
-def get_user(username: str):
-    response = user_table.get_item(Key={'username': username})
-    return response.get('Item')
-
-def authenticate_user(username: str, password: str):
-    user = get_user(username)
-    if not user:
-        return False
-    if not verify_password(password, user['password']):
-        return False
-    return user
-
-
-@router.get("/profile", response_model=Profile)
-async def read_profile(token: str = Depends(oauth2_scheme)):
-    user = get_user(token)
-    if not user:
-        raise HTTPException(status_code=400, detail="Invalid token")
-    
-    response = profile_table.get_item(Key={'username': token})
-    profile = response.get('Item')
-    if not profile:
+@router.get("/profile/{user_id}")
+def read_profile(user_id: str):
+    data = get_data_by_id(user_id)
+    if data:
+        return data
+    else:
         raise HTTPException(status_code=404, detail="Profile not found")
-    
-    return profile
 
-@router.put("/profile", response_model=Profile)
-async def update_profile(profile: Profile, token: str = Depends(oauth2_scheme)):
-    user = get_user(token)
-    if not user:
-        raise HTTPException(status_code=400, detail="Invalid token")
-    
+@router.post("/profile/{user_id}")
+def create_profile(user_id: str, profile: Profile):
     profile_data = profile.dict()
-    profile_data['username'] = user['username']
-    
-    profile_table.put_item(Item=profile_data)
-    return profile_data
+    profile_data['user_id'] = user_id
+    insert_data(profile_data)
+    return {"message": "Profile created successfully"}
