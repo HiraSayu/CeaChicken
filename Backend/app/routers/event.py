@@ -7,6 +7,9 @@ from passlib.context import CryptContext
 #from schemas import *
 from typing import Optional
 
+from database.service.event import register_event, get_events_by_type
+
+
 class User(BaseModel) :
     username: str
     password: str
@@ -29,34 +32,29 @@ class make_event(BaseModel):
     type : str
 
 class join_event(BaseModel):
-    user_id: int
+
+    user_id: str
+
     type: str
 
 router = APIRouter()
 
 @router.get("/event/{university_id}/{type}")
 async def show_event(university_id: int, type: str):
-    return {
-        "university_id": university_id,
-        "type": type
-        }
+
+    events = get_events_by_type(type)
+    return events
 
 @router.post("/event/entry") 
 async def make_event(make_event: make_event):
-    return {
-        "event_name": make_event.event_name,
-        "time": make_event.time,
-        "where_to_meet": make_event.where_to_meet,
-        "food_preference": make_event.food_preference,
-        "user_id": make_event.user_id,
-        "type": make_event.type
-        }
+    register_event(make_event.model_dump())
+    return {"message": "event created successfully"}
+
 
 @router.post("/event/join/{user_id}")
 async def join_event(user_id: int, join_event: join_event):
     return {
         "user_id": user_id,
         "type": join_event.type
+
         }
-
-
