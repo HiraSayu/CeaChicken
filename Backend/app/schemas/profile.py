@@ -5,4 +5,5 @@ class Profile(BaseModel):
     type: str
     nationality: str
     university: str
-    comment: str
+    major : str
+    gender : str
