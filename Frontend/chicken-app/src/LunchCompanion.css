@@ -1,0 +1,102 @@
+/* LunchCompanion.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    
+  }
+
+  .container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    box-sizing: border-box;
+}
+
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .results-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .result-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profileimg {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .info {
+    flex-grow: 1;
+  }
+  
+  .eventName {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .meetLocation {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+  }
+
+  .percentage {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .start-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
