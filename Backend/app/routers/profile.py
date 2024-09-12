@@ -31,4 +31,4 @@ def create_profile(profile: Profile):
     profile_data['user_id'] = user_id
     insert_data(profile_data)
     return {"message": "Profile created successfully", "user_id": user_id}
-    
+
