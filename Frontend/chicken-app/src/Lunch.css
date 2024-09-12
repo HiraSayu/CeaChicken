@@ -56,3 +56,7 @@ html, body {
   border-radius: 8px;        /* 角を丸くする */
   transition: background-color 0.3s ease; /* 背景色の変化を滑らかに */
   }
+
+  .hr{
+    margin:0px;
+  }

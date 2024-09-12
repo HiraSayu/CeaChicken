@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import "./ReasultCardStyle.css";
+// import "./ReasultCardStyle.css";
+import "./LunchCompanion.css"
 import axios from 'axios'; // axiosをインポート
 
 
@@ -22,6 +23,7 @@ export default class ResultCard extends React.Component{
               <p className="meetLocation">{this.props.meetLocation}</p>
               <p className="time">{this.props.time}</p>
             </div>
+              <button  className="btn btn-primary">Join</button>
       </li>
            
      
