@@ -1,5 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
+import RegisterProfile from './components/InputProfile2';
+import YourProfile  from './components/YourProfile';
+import { BrowserRouter as Router, Route, Link, Routes, useNavigate  } from 'react-router-dom';
 
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
@@ -7,24 +10,26 @@ import LunchCompanion from './LunchCompanion';
 import EventRegister from './EventRegister';
 
 function App() {
-  return (
-    
-    <div className="App">
+       return(
+        <div className="App">
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/register_profile" element={<RegisterProfile />} />
+                    <Route path="/your_profile" element={<YourProfile />} />
 
-    <Router>
-          <Routes>
-              <Route path="/profile" element={<LunchCompanion />} />
-              <Route path="/Eventregist" element={<EventRegister />} />
-              
-            </Routes>
-        
-        </Router>
+                    {/* <Route path="/profile" element={<LunchCompanion />} />
+                    <Route path="/Eventregist" element={<EventRegister />} /> */}
+                    {/* <Route path="/Eventregist" element={<EventRegister />} /> */}
+                    {/* <Home />
+                    <Complete /> */}
+                </Routes>
+            </Router>
 
-      <header className="App-header">
-       
-      </header>
-    </div>
-  );
+        </div>
+
+       );
+
 }
 
 export default App;
