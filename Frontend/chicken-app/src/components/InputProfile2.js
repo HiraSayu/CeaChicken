@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { Form, Button } from 'react-bootstrap';
+const url = "http://127.0.0.1:8000/profile";
 
-function InputProfile() {
+function InputProfile() { 
+	
+  function getRandomString(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      result += characters[randomIndex];
+    }
+    
+    return result;
+  }
+
+
   const [selectedOption, setSelectedOption] = useState('');
   const [userProfile, setUserProfile] = useState({
-    userName: "",
-    isInternationalStudent: "",
-    gender: "",
-    nationality: "",
-    university: "",
-    major: ""
+    'user_id' : getRandomString(5),
+    'name': "",
+    'type': "",
+    'nationality': "",    
+    'university': "",
+    'major': "",
+    'gender': ""
   });
 
   // 入力が変更されたときに状態を更新する関数
@@ -27,7 +43,7 @@ function InputProfile() {
     setSelectedOption(event.target.value);
     setUserProfile(prevState => ({
       ...prevState,
-      isInternationalStudent: event.target.value
+      type: event.target.value
     }));
   };
 
@@ -37,12 +53,21 @@ function InputProfile() {
     // 現在のuserProfileの状態をコンソールに表示
     console.log(userProfile);
     //API呼び出し、post, put profile
+    try {
+      // axios.postでデータを送信
+      const response =  axios.post(url, userProfile, {
+        headers: {
+          'Content-Type': 'application/json'  // JSON形式でデータを送信するためのヘッダー
+        }
+      });
+
+      console.log('Response:', response.data);  // サーバーからのレスポンスをログに表示
+    } catch (error) {
+      console.error('Error posting data:', error);
+    }
 
   };
 
-  const putProfile = (enent) => {
-    
-  }
 
   return (
     <div>
@@ -54,7 +79,7 @@ function InputProfile() {
             <label className='form-label FormLabel'>名前: </label>
             <input
               type="text"
-              name="userName"
+              name="name"
               value={userProfile.userName}
               onChange={handleProfileInput}
               className='form-control'
