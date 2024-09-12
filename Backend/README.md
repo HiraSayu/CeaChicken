@@ -14,6 +14,12 @@
     pip install fastapi[all]
     ```
 
+3. **Key setting**
+    ```
+    export AWS_ACCESS_KEY_ID=AK***
+    export AWS_SECRET_ACCESS_KEY=LV****
+    ```
+
 ## サーバーの起動
 
 以下のコマンドを使用してサーバーを起動します。
