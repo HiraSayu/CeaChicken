@@ -1,6 +1,7 @@
 import './eventRegisterStyle.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate} from 'react-router-dom';
 
 const EventRegister = () => {
   const [eventName, setEventName] = useState('');
@@ -9,6 +10,7 @@ const EventRegister = () => {
   const [foodPreference, setFoodPreference] = useState('');
   const [userId, setUserId] = useState('');
   const [type, setType] = useState('');
+  const navigate = useNavigate();  
 
   const url = "http://localhost:8000/event/entry"; // URLを修正
 
@@ -36,6 +38,10 @@ const EventRegister = () => {
       });
   };
 
+  function moveToComplete(){
+    navigate(`/Complete_Regist`);
+  }
+
   return (
     <div>
       <p className='title'>Event</p>
@@ -58,7 +64,7 @@ const EventRegister = () => {
         <label>user</label>
         <input value={userId} onChange={(cevent) => setUserId(cevent.target.value)} />
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" onClick={moveToComplete}/>
       </form>
     </div>
   );
