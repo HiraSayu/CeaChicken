@@ -6,6 +6,11 @@ import Profile from './components/Profile';
 import YourProfile  from './components/YourProfile';
 import { BrowserRouter as Router, Route, Link, Routes, useNavigate  } from 'react-router-dom';
 
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+
+import LunchCompanion from './LunchCompanion';
+import EventRegister from './EventRegister';
+
 function App() {
        return(
         <div className="App">
@@ -29,6 +34,7 @@ function App() {
         </div>
 
        );
+
 }
 
 export default App;
