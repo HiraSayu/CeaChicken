@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';//*useContext追加
 import axios from "axios";
 import { Link } from "react-router-dom"
 import { Form, Button } from 'react-bootstrap';
+import { TypeContext, setFormData} from '../contexts';//*context用ファイルのインポート
 const url = "http://127.0.0.1:8000/profile";
 
 function RegisterProfile() { 
+  const { setFormData } = useContext(TypeContext); // *ContextからsetFormDataを取得
 	
   function getRandomString(length) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -52,6 +54,9 @@ function RegisterProfile() {
     event.preventDefault(); // デフォルトの送信動作を防ぐ
     // 現在のuserProfileの状態をコンソールに表示
     console.log(userProfile);
+
+    // *typeの値をcontextに保存
+    setFormData(userProfile.type);
     
     //APIの部分
     async function sendData() {

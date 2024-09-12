@@ -21,6 +21,8 @@ export default class ResultCard extends React.Component{
               <p className="eventName">{this.props.name}</p>
               <p className="meetLocation">{this.props.meetLocation}</p>
               <p className="time">{this.props.time}</p>
+              <p className="food_preference">{this.props.food}</p>
+        
             </div>
       </li>
            

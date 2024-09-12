@@ -1,8 +1,9 @@
 // LunchCompanion.js
 import './Lunch.css';
 import React from "react";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios'; // axiosをインポート
+import {TypeContext} from './contexts';
 
 import ResultCard from './resultcard';
 
@@ -10,7 +11,9 @@ import ResultCard from './resultcard';
 const LunchCompanion = () => {
 
   const [events, setEvents] = useState([]); // イベントのデータを管理するstate
-  const url = "/event/{university_id}/{type}";
+  const typeContext = useContext(TypeContext);
+  
+  const url = "http://localhost:8000/event/university/local";
 
   const GetData = () => {
 		axios.get(url).then((res) => {
@@ -42,7 +45,8 @@ const LunchCompanion = () => {
       key={index}
       > */}
         {events.map((event,index)=>(
-          <ResultCard  index={index} name={event.name} meetLocation="north1" time={event.time} url=" "/>
+          <ResultCard  index={index} name={event.event_name} meetLocation={event.where_to_meet}
+           time={event.time} food={event.food_preference} url=" "/>
         )
       )}
      

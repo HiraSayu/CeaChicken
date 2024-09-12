@@ -10,7 +10,7 @@ const EventRegister = () => {
   const [userId, setUserId] = useState('');
   const [type, setType] = useState('');
 
-  const url = "http://localhost:8000/event/entry"; // URLを修正
+  const url = "http://localhost:8000/event/entry"; 
 
   const PostData = (event) => {
     event.preventDefault(); // フォームのデフォルトの送信動作を防止
