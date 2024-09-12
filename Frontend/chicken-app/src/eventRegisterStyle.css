@@ -1,0 +1,45 @@
+.title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+
+.EventRegistForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.EventRegistForm label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.EventRegistForm input[type="text"], 
+.EventRegistForm input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.EventRegistForm input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.EventRegistForm input[type="submit"]:hover {
+    background-color: #0056b3;
+}
