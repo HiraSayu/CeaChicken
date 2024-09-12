@@ -4,16 +4,17 @@ import React from "react";
 import { useEffect, useState } from 'react';
 import axios from 'axios'; // axiosをインポート
 import { useNavigate, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import ResultCard from './resultcard';
 
 
 const LunchCompanion = () => {
-
+  const { type } = useParams();  // URLからtypeを取得
   const [events, setEvents] = useState([]); // イベントのデータを管理するstate
   // const url = "/event/{university_id}/{type}";
   // url = "/event/{type}";
- const url = "http://127.0.0.1:8000/event/university/international";
+ const url = `http://127.0.0.1:8000/event/university/${ type }`;
   
 
   const GetData = () => {
@@ -37,6 +38,8 @@ const LunchCompanion = () => {
         <button className="back-button">←</button>
         <h1 className="title">Find a lunch companion</h1>
       </header>
+
+      {/* イベント新規登録のボタン */}
       <Link style={{textDecoration: "none"}} to="/Eventregist">
         <div className='add-event-btn' style={{width:"140px", height:"50px", marginLeft:"200px",marginBottom:"30px",padding:"15px" , display:"flex"}}>
           <label style={{fontSize: "18px", marginRight:"10px"}}>add event</label>

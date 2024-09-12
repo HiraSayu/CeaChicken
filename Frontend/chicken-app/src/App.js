@@ -26,7 +26,7 @@ function App() {
 
                     <Route path="/profile" element={<LunchCompanion />} />
                     <Route path="/Eventregist" element={<EventRegister />} /> 
-                    <Route path="/LunchCompanion" element={<LunchCompanion />} /> 
+                    <Route path="/LunchCompanion/university/:type" element={<LunchCompanion />} /> 
 
                      {/* <Home /> */}
                      {/* <Complete />  */}

@@ -54,7 +54,8 @@ function RegisterProfile() {
       console.log(responseData);  // データを表示
       
       // 非同期処理が完了したら、次の画面に遷移
-      navigate(`/profile/${responseData.user_id}`);  // 'next-page' 画面に遷移
+      // navigate(`/LunchCompanion/${responseData.user_id}`);  // 'next-page' 画面に遷移
+      navigate(`/LunchCompanion/university/${userProfile.type}`);  // 'next-page' 画面に遷移
     } catch (error) {
       console.error('Error:', error);
       // エラーハンドリング、例えばエラーページへの遷移など
