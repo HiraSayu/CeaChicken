@@ -22,10 +22,10 @@ const LunchCompanion = () => {
     GetData();
   }, []); 
 
-  handleCardClick = () => { //提案者がクリックされた時の処置
-    // URLをpropsから取得し、GETリクエストを送信
+//   handleCardClick = () => { //提案者がクリックされた時の処置
+//     // URLをpropsから取得し、GETリクエストを送信
     
-  };
+//   };
 
   return (
     <div className="container">
