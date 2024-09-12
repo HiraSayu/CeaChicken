@@ -1,13 +1,17 @@
 import * as React from 'react';
 
-import "./ReasultCardStyle.css";
+// import "./ReasultCardStyle.css";
+import "./LunchCompanion.css"
 import axios from 'axios'; // axiosをインポート
+import { useNavigate} from 'react-router-dom';
 
 
 
 export default class ResultCard extends React.Component{
-
   render(){
+    function redirectToURL() {
+      window.location.href = '/Complete_Join'; // 遷移したいURLを指定
+    }
   return(
     <div class="ResultCard">
       
@@ -22,6 +26,7 @@ export default class ResultCard extends React.Component{
               <p className="meetLocation">{this.props.meetLocation}</p>
               <p className="time">{this.props.time}</p>
             </div>
+              <button  className="btn btn-primary" onClick={redirectToURL}  >Join</button>
       </li>
            
      
