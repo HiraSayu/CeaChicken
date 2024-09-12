@@ -1,12 +1,9 @@
-from fastapi import FastAPI, Depends, HTTPException
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from pydantic import BaseModel
+from fastapi import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI, Depends, HTTPException, APIRouter
-import boto3
-from passlib.context import CryptContext
+from fastapi import HTTPException, APIRouter
 from schemas import *
 from database.service.profile import insert_data, get_data_by_id
+import uuid
 
 
 router = APIRouter()
@@ -26,3 +23,11 @@ def create_profile(user_id: str, profile: Profile):
     profile_data['user_id'] = user_id
     insert_data(profile_data)
     return {"message": "Profile created successfully"}
+
+@router.post("/profile")
+def create_profile(profile: Profile):
+    user_id = str(uuid.uuid4())
+    profile_data = profile.dict()
+    profile_data['user_id'] = user_id
+    insert_data(profile_data)
+    return {"message": "Profile created successfully", "user_id": user_id}
