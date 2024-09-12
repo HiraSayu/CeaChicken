@@ -160,7 +160,8 @@ function RegisterProfile() {
           </li>
         </ul>
         <button type="submit" className="btn btn-primary">プロフィールを登録</button>
-        {/* <button type="button" className="btn btn-primary"><Link to="`/profile/${userId}`">自分のプロフィールを見る</Link></button> */}
+        <button type="button" className="btn btn-primary"><Link to="/Eventregist">イベントの登録</Link></button>
+        <button type="button" className="btn btn-primary"><Link to="/LunchCompanion">一覧表示</Link></button>
         
       </form>
     </div>

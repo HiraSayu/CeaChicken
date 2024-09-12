@@ -6,7 +6,8 @@ import Profile from './components/Profile';
 import YourProfile  from './components/YourProfile';
 import { BrowserRouter as Router, Route, Link, Routes, useNavigate  } from 'react-router-dom';
 
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+
+
 
 import LunchCompanion from './LunchCompanion';
 import EventRegister from './EventRegister';
@@ -23,11 +24,12 @@ function App() {
                     <Route path="/your_profile" element={<YourProfile />} />
                     <Route path="/event_detail" element={<EventDetail />} />
 
-                    {/* <Route path="/profile" element={<LunchCompanion />} />
-                    <Route path="/Eventregist" element={<EventRegister />} /> */}
-                    {/* <Route path="/Eventregist" element={<EventRegister />} /> */}
-                    {/* <Home />
-                    <Complete /> */}
+                    <Route path="/profile" element={<LunchCompanion />} />
+                    <Route path="/Eventregist" element={<EventRegister />} /> 
+                    <Route path="/LunchCompanion" element={<LunchCompanion />} /> 
+
+                     {/* <Home /> */}
+                     {/* <Complete />  */}
                 </Routes>
             </Router>
 
