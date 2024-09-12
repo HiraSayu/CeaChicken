@@ -65,25 +65,7 @@ const LunchCompanion = () => {
       )} */}
 
         {events.map((event, index) => (
-          // <ResultCard  index={index} name={event.event_name} meetLocation={event.where_to_meet} time={event.time} userId={events.user_id} foodReference={events.food_reference} url=""/>
-          <li className="result-item" >
-            <img
-              className="profileimg"
-              src={`https://via.placeholder.com/48?text=N`}
-              alt={``}
-            />
-            <div className="info">
-              <p className="eventName">{event.event_name}</p>
-              <p className="meetLocation">{event.where_to_meetn}</p>
-              <p className="time">{event.time}</p>
-            </div>
-              <button  className="btn btn-primary">Join</button>
-      </li>
-          // <li key={index}>
-          //   <h2>{event.time}</h2>
-          //   <p>Date: {event.user_id}</p>
-          //   <p>Description: {event.food_preference}</p>
-          // </li>
+          <ResultCard  index={index} name={event.event_name} meetLocation={event.where_to_meet} time={event.time} userId={events.user_id} foodReference={events.food_reference} url=""/>
         ))}
      
 
