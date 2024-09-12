@@ -28,8 +28,10 @@ def get_events_by_type(type):
     dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
     table = dynamodb.Table('eventdb')
 
+    opposite_type = 'local' if type == 'international' else 'international'
+
     response = table.scan(
-        FilterExpression=Attr('type').eq(type)
+        FilterExpression=Attr('type').eq(opposite_type)
     )
 
     return response['Items']
@@ -66,6 +68,6 @@ if __name__ == '__main__':
     # register_event(data3)
 
     # 指定したtypeに一致するすべてのイベントの表示例
-    events = get_events_by_type('international')
+    events = get_events_by_type(type='international')
     for event in events:
         print(event)
