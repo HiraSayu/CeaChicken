@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import { useParams } from 'react-router-dom';
 const url = "http://127.0.0.1:8000/profile";
 
 const YourProfile = () => {
+    const { id } = useParams();
+    console.log(id)
     const [Profile, setProfile] = useState();
     const GetData = (user_id) => {
         url += user_id

@@ -1,8 +1,12 @@
 import './App.css';
-import Home from './components/home';
+import EventDetail from './components/EventDetail';
+import Home from './components/Home';
 import RegisterProfile from './components/InputProfile2';
+import Profile from './components/Profile';
 import YourProfile  from './components/YourProfile';
 import { BrowserRouter as Router, Route, Link, Routes, useNavigate  } from 'react-router-dom';
+
+
 
 import {FormProvider} from './contexts';
 
@@ -17,13 +21,18 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/register_profile" element={<RegisterProfile />} />
+                    {/* :user_id は動的なパラメータ */}
+                     <Route path="/profile/:user_id" element={<Profile />} />
                     <Route path="/your_profile" element={<YourProfile />} />
+                    <Route path="/event_detail" element={<EventDetail />} />
 
-                    <Route path="/event" element={<LunchCompanion />} />
-                    <Route path="/Eventregist" element={<EventRegister />} />
-                   
-                    {/* <Home />
-                    <Complete /> */}
+                    <Route path="/profile" element={<LunchCompanion />} />
+                    <Route path="/Eventregist" element={<EventRegister />} /> 
+                    <Route path="/LunchCompanion/university/:type" element={<LunchCompanion />} /> 
+
+                     {/* <Home /> */}
+                     {/* <Complete />  */}
+
                 </Routes>
             </Router>
           </FormProvider>

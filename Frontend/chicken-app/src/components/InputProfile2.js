@@ -1,31 +1,20 @@
 import React, { useState, useContext} from 'react';//*useContext追加
 import axios from "axios";
-import { Link } from "react-router-dom"
+import { useNavigate, Link } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
+import YourProfile from './YourProfile';
+
 import { TypeContext, setFormData} from '../contexts';//*context用ファイルのインポート
 const url = "http://127.0.0.1:8000/profile";
 
-function RegisterProfile() { 
+function RegisterProfile() {
   const { setFormData } = useContext(TypeContext); // *ContextからsetFormDataを取得
-	
-  function getRandomString(length) {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      result += characters[randomIndex];
-    }
-    
-    return result;
-  }
-
-
+  const navigate = useNavigate();  // useNavigateフックを使用
   const [selectedOption, setSelectedOption] = useState('');
   const [userProfile, setUserProfile] = useState({
     'name': "",
     'type': "",
-    'nationality': "",    
+    'nationality': "",
     'university': "",
     'major': "",
     'gender': ""
@@ -50,49 +39,35 @@ function RegisterProfile() {
   };
 
   // フォームの送信処理
-  const submitProfile = (event) => {
+  const submitProfile = async (event) => {
     event.preventDefault(); // デフォルトの送信動作を防ぐ
-    // 現在のuserProfileの状態をコンソールに表示
-    console.log(userProfile);
+    console.log(userProfile); // 現在のuserProfileの状態をコンソールに表示
 
     // *typeの値をcontextに保存
     setFormData(userProfile.type);
-    
+
     //APIの部分
-    async function sendData() {
-      try {
-        // 非同期処理を待つ
-        const response = await axios.post(url, userProfile, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
+    try {
+      const response = await axios.post(url, userProfile, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
 
-        // レスポンスデータを変数に格納
-        const responseData = response.data;
-        console.log(responseData);  // 格納されたデータを表示
-
-        return responseData;  // データを関数の戻り値として返す
-      } catch (error) {
-        console.error('Error:', error);
-        // エラーが発生した場合、必要に応じてエラーを返すこともできます
-        throw error;  // または return null; としても良い
-      }
+      // レスポンスデータを変数に格納
+      const responseData = response.data;
+      console.log(responseData);  // データを表示
+      
+      // 非同期処理が完了したら、次の画面に遷移
+      // navigate(`/LunchCompanion/${responseData.user_id}`);  // 'next-page' 画面に遷移
+      navigate(`/LunchCompanion/university/${userProfile.type}`);  // 'next-page' 画面に遷移
+    } catch (error) {
+      console.error('Error:', error);
+      // エラーハンドリング、例えばエラーページへの遷移など
+      navigate('/error-page');
     }
+  };
 
-    // 非同期関数を呼び出し、結果を表示する
-    async function main() {
-      try {
-        const result = await sendData();  // 非同期処理の結果を待つ
-        console.log("hei", result);  // 変数に格納されたデータを利用
-        console.log(result.message)
-      } catch (error) {
-        console.error('Error in main:', error);
-      }
-    }
-
-    main();  // main 関数を呼び出して処理を開始
-    };
     
     
     
@@ -191,7 +166,8 @@ function RegisterProfile() {
           </li>
         </ul>
         <button type="submit" className="btn btn-primary">プロフィールを登録</button>
-        <button type="button" className="btn btn-primary"><Link to="/your_profile">自分のプロフィールを見る</Link></button>
+        <button type="button" className="btn btn-primary"><Link to="/Eventregist">イベントの登録</Link></button>
+        <button type="button" className="btn btn-primary"><Link to="/LunchCompanion">一覧表示</Link></button>
         
       </form>
     </div>
