@@ -40,7 +40,7 @@ class join_event(BaseModel):
 router = APIRouter()
 
 @router.get("/event/{university_id}/{type}")
-async def show_event(university_id: int, type: str):
+async def show_event(university_id: str, type: str):
 
     events = get_events_by_type(type)
     return events
