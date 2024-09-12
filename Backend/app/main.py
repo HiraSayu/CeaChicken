@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import login, health, profile
+from routers import login, event, profile
 import os
 from dotenv import load_dotenv
 
@@ -22,6 +22,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(health.router)
+app.include_router(event.router)
 app.include_router(login.router)
 app.include_router(profile.router)
