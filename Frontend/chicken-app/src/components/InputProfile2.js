@@ -94,6 +94,7 @@ function RegisterProfile() {
                   value="international"
                   checked={selectedOption === 'international'}
                   onChange={handleOptionChange}
+                  
                 />
                 留学生
               </label>

@@ -34,11 +34,17 @@ const LunchCompanion = () => {
     
 //   };
 
+function backPage(){
+    window.location.href = '/register_profile'; // 遷移したいURLを指定
+  
+}
+  
+
   return (
     <div className="container">
       <div style={{marginBottom:"20px", height:"120px", borderBottom:"4px solid rgba(0, 0, 0, 0.1)"}}>
         <header className="header">
-          <button className="back-button">←</button>
+          <button className="back-button" onClick={backPage}>←</button>
           <h1 className="title">Find a lunch companion</h1>
         </header>
 
