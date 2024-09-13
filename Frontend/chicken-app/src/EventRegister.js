@@ -51,12 +51,12 @@ const EventRegister = () => {
   return (
 
     <div>
-      <p className='title'>Event Regist</p>
+      {/* <p className='title'>Event Regist</p> */}
 
     <div className='smartphone-frame'>
       <div style={{display:"flex"}}>
         <button className="back-button" onClick={backPage}>←</button>
-        <p className='title' style={{marginLeft:"40px"}}>Event</p>
+        <p className='title' style={{marginLeft:"0px"}}>New Event</p>
 
       </div>
 
@@ -95,13 +95,14 @@ const EventRegister = () => {
         {/* <label>type</label>
         <input value={type} onChange={(cevent) => setType(cevent.target.value)} placeholder='local or international' /> */}
 
-        <label>user</label>
+        <label>user id</label>
         <input value={userId} onChange={(cevent) => setUserId(cevent.target.value)} />
 
-        <input type="submit" value="Submit"/>
-        {/* onClick={moveToComplete} */}
+        <input type="submit" value="Submit" onClick={moveToComplete}/>
+        
       </form>
     </div>
+  </div>
   );
 };
 

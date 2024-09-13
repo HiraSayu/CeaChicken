@@ -11,8 +11,8 @@ import { BrowserRouter as Router, Route, Link, Routes, useNavigate  } from 'reac
 
 import LunchCompanion from './LunchCompanion';
 import EventRegister from './EventRegister';
-// import CompleteRegist from './components/CompleteRegist';
-// import CompleteJoin from './components/CompleteJoin';
+import CompleteRegist from './components/CompleteRegist';
+import CompleteJoin from './components/CompleteJoin';
 
 function App() {
        return(
@@ -29,8 +29,8 @@ function App() {
                     <Route path="/profile" element={<LunchCompanion />} />
                     <Route path="/Eventregist" element={<EventRegister />} /> 
                     <Route path="/LunchCompanion/university/:type" element={<LunchCompanion />} /> 
-                    {/* <Route path="/Complete_Regist" element={<CompleteRegist />} /> 
-                    <Route path="/Complete_Join" element={<CompleteJoin />} />  */}
+                    <Route path="/Complete_Regist" element={<CompleteRegist />} /> 
+                    <Route path="/Complete_Join" element={<CompleteJoin />} /> 
 
                      {/* <Home /> */}
                      {/* <Complete />  */}

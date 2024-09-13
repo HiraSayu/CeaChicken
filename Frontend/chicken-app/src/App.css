@@ -71,6 +71,7 @@ ul li{
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
+  
   width: 100px;
   height: 15px;
   background-color: #534e4e;

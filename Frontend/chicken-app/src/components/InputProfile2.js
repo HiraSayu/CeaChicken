@@ -69,11 +69,11 @@ function RegisterProfile() {
     return (
       <div className='smartphone-frame'>
         <form className='Profile screen' onSubmit={submitProfile}>
-          <h1 style={{padding:"20px 20px 0px 20px"}}>プロフィール登録</h1>
+          <h1 style={{padding:"20px 20px 0px 20px"}}>Register Profile</h1>
           <hr/>
-          <ul style={{ textAlign: "center", marginBottom: "30px" }}>
-            <li style={{ display: "flex" }}>
-              <label className='form-label FormLabel fw-bolder'>名前: </label>
+          <ul style={{ textAlign: "center", marginBottom: "30px", }}>
+            <li style={{ display: "flex"}}>
+              <label className='form-label FormLabel fw-bolder' style={{marginRight:"57px"}}>name: </label>
               <input
                 type="text"
                 name="name"
@@ -81,11 +81,11 @@ function RegisterProfile() {
                 onChange={handleProfileInput}
                 className='form-control'
                 style={{ height: "30px", width: "200px" }}
-                placeholder='ドコモ太郎'
+                placeholder='docomo taro'
               />
             </li>
             <li style={{ display: "flex" }}>
-              <label className='FormLabel fw-bolder'>属性: </label>
+              <label className='FormLabel fw-bolder'>type: </label>
               <div style={{ marginRight: "20px" }}>
                 <label className='fw-bolder'>
                   <input
@@ -96,7 +96,7 @@ function RegisterProfile() {
                     onChange={handleOptionChange}
                     
                   />
-                  留学生
+                  international
                 </label>
               </div>
               <div>
@@ -108,12 +108,12 @@ function RegisterProfile() {
                     checked={selectedOption === 'local'}
                     onChange={handleOptionChange}
                   />
-                  留学生でない
+                  local
                 </label>
               </div>
             </li>
             <li style={{ display: "flex" }}>
-              <label className='FormLabel fw-bolder'>性別: </label>
+              <label className='FormLabel fw-bolder' style={{marginRight:"45px"}}>gender: </label>
               <input
                 type="text"
                 name="gender"
@@ -121,11 +121,11 @@ function RegisterProfile() {
                 onChange={handleProfileInput}
                 className='form-control'
                 style={{ height: "30px", width: "200px" }}
-                placeholder='男'
+                placeholder='men'
               />
             </li>
             <li style={{ display: "flex" }}>
-              <label className='FormLabel fw-bolder'>国籍: </label>
+              <label className='FormLabel fw-bolder'>nationality: </label>
               <input
                 type="text"
                 name="nationality"
@@ -133,11 +133,11 @@ function RegisterProfile() {
                 onChange={handleProfileInput}
                 className='form-control'
                 style={{ height: "30px", width: "200px" }}
-                placeholder='日本'
+                placeholder='Japan'
               />
             </li>
             <li style={{ display: "flex" }}>
-              <label className='FormLabel fw-bolder'>大学: </label>
+              <label className='FormLabel fw-bolder' style={{marginRight:"28px"}}>university: </label>
               <input
                 type="text"
                 name="university"
@@ -145,11 +145,11 @@ function RegisterProfile() {
                 onChange={handleProfileInput}
                 className='form-control'
                 style={{ height: "30px", width: "200px" }}
-                placeholder='ドコモ大学'
+                placeholder='docomo university'
               />
             </li>
             <li style={{ display: "flex" }}>
-              <label className='FormLabel fw-bolder'>学部: </label>
+              <label className='FormLabel fw-bolder' style={{marginRight:"55px"}}>major: </label>
               <input
                 type="text"
                 name="major"
@@ -157,11 +157,11 @@ function RegisterProfile() {
                 onChange={handleProfileInput}
                 className='form-control'
                 style={{ height: "30px", width: "200px" }}
-                placeholder='通信学部'
+                placeholder='computer science'
               />
             </li>
           </ul>
-          <button type="submit" className="btn btn-primary">プロフィールを登録</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
           {/* <button type="button" className="btn btn-primary"><Link to="/Eventregist">イベントの登録</Link></button>
           <button type="button" className="btn btn-primary"><Link to="/LunchCompanion">一覧表示</Link></button> */}
           

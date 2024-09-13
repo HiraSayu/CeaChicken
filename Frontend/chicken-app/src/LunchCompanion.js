@@ -41,16 +41,16 @@ function backPage(){
   
 
   return (
-    <div className="container smartphone-frame">
+    <div style={{width:"450px"}} className="container smartphone-frame" >
       <div style={{marginBottom:"20px", height:"120px", borderBottom:"4px solid rgba(0, 0, 0, 0.1)"}}>
         <header className="header">
           <button className="back-button" style={{marginLeft:"10px"}} onClick={backPage}>←</button>
-          <h1 className="title">Find a lunch companion</h1>
+          <h2 className="title">Find a lunch companion</h2>
         </header>
 
         {/* イベント新規登録のボタン */}
-        <Link style={{textDecoration: "none"}} to="/Eventregist">
-          <div className='add-event-btn' style={{width:"140px", height:"50px", marginLeft:"200px",marginBottom:"30px",padding:"15px" , display:"flex"}}>
+        <Link style={{textDecoration: "none", marginBottom:"100px"}} to="/Eventregist">
+          <div className='add-event-btn' style={{width:"140px", height:"50px", marginLeft:"240px",marginBottom:"50px",padding:"15px" , display:"flex"}}>
             <label style={{fontSize: "18px", marginRight:"10px"}}>add event</label>
             <i style={{paddingTop:"6px"}} class="fa-solid fa-circle-plus"></i>
           </div>
@@ -58,7 +58,7 @@ function backPage(){
       </div>
 
 
-      <ul className="results-list">
+      <ul className="results-list" style={{marginTop:"65px"}}>
      
       {/*       
       <li className="result-item" 
