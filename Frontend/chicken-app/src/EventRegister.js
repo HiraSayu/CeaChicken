@@ -32,6 +32,7 @@ const EventRegister = () => {
     )
       .then((res) => {
         console.log(res);
+        moveToComplete(); //POSTが完了した後に画面遷移を行う
       })
       .catch((err) => {
         console.log(err);
@@ -44,27 +45,47 @@ const EventRegister = () => {
 
   return (
     <div>
-      <p className='title'>Event</p>
+      <p className='title'>Event Regist</p>
       <form className="EventRegistForm" onSubmit={PostData}>
         <label>eventname</label>
-        <input value={eventName} onChange={(cevent) => setEventName(cevent.target.value)} />
+        <input value={eventName} onChange={(cevent) => setEventName(cevent.target.value)} placeholder='holiday celebration'/>
 
         <label>time</label>
-        <input value={time} onChange={(cevent) => setTime(cevent.target.value)} />
+        <input value={time} onChange={(cevent) => setTime(cevent.target.value)} placeholder='2024-10-09 00:00'/>
 
         <label>whereToMeet</label>
-        <input value={whereToMeet} onChange={(cevent) => setWhereToMeet(cevent.target.value)} />
+        <input value={whereToMeet} onChange={(cevent) => setWhereToMeet(cevent.target.value)} placeholder='cafeteria'/>
 
         <label>foodPreference</label>
-        <input value={foodPreference} onChange={(cevent) => setFoodPreference(cevent.target.value)} />
+        <input value={foodPreference} onChange={(cevent) => setFoodPreference(cevent.target.value)} placeholder='gulten-free'/>
 
-        <label>type</label>
-        <input value={type} onChange={(cevent) => setType(cevent.target.value)} />
+
+        <label>Type</label>
+        <div className="radio">
+          <label className="radio-opt">
+            <input
+              type="radio"  value="local" checked={type === 'local'}
+              onChange={() => setType('local')}
+            />
+            Local
+          </label>
+          <label className="radio-opt">
+            <input
+              type="radio" value="international" checked={type === 'international'}
+              onChange={() => setType('international')}
+            />
+            International
+          </label>
+        </div>
+
+        {/* <label>type</label>
+        <input value={type} onChange={(cevent) => setType(cevent.target.value)} placeholder='local or international' /> */}
 
         <label>user</label>
         <input value={userId} onChange={(cevent) => setUserId(cevent.target.value)} />
 
-        <input type="submit" value="Submit" onClick={moveToComplete}/>
+        <input type="submit" value="Submit"/>
+        {/* onClick={moveToComplete} */}
       </form>
     </div>
   );
