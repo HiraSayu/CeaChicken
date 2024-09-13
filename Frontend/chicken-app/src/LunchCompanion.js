@@ -71,13 +71,9 @@ function backPage(){
       )} */}
 
         {events.map((event, index) => (
-          <ResultCard  index={index} name={event.event_name} meetLocation={event.where_to_meet} time={event.time} userId={events.user_id} foodReference={events.food_reference} url=""/>
+          <ResultCard  index={index} name={event.event_name} meetLocation={event.where_to_meet} time={event.time} userId={events.user_id} foodReference={event.food_preference} url=""/>
         ))}
      
-
-      {/*       
-      <ResultCard  name="nina" meetLocation="north1"/> */}
-
       </ul>
       
     </div>

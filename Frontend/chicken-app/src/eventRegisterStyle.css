@@ -1,5 +1,5 @@
 .title {
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
   }
   
@@ -44,6 +44,22 @@
     background-color: #0056b3;
 }
 
+
+.radio-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.radio-opt {
+  position: relative;
+  padding-left: 30px; 
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
    /* スマホ画面の枠 */
    .smartphone-frame {
     width: 360px;   /* スマホの幅に合わせる */
@@ -82,3 +98,4 @@
     font-size: 24px;
     margin-right: 10px;
   }
+
