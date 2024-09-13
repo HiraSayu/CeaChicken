@@ -42,9 +42,18 @@ const EventRegister = () => {
     navigate(`/Complete_Regist`);
   }
 
+  function backPage(){
+    window.location.href = '/LunchCompanion/university/international'; // 遷移したいURLを指定
+  
+}
+
   return (
-    <div>
-      <p className='title'>Event</p>
+    <div className='smartphone-frame'>
+      <div style={{display:"flex"}}>
+        <button className="back-button" onClick={backPage}>←</button>
+        <p className='title' style={{marginLeft:"40px"}}>Event</p>
+
+      </div>
       <form className="EventRegistForm" onSubmit={PostData}>
         <label>eventname</label>
         <input value={eventName} onChange={(cevent) => setEventName(cevent.target.value)} />
