@@ -30,7 +30,7 @@ function App() {
                     <Route path="/Eventregist" element={<EventRegister />} /> 
                     <Route path="/LunchCompanion/university/:type" element={<LunchCompanion />} /> 
                     <Route path="/Complete_Regist" element={<CompleteRegist />} /> 
-                    <Route path="/Complete_Join" element={<CompleteRegist />} /> 
+                    <Route path="/Complete_Join" element={<CompleteJoin />} /> 
 
                      {/* <Home /> */}
                      {/* <Complete />  */}
