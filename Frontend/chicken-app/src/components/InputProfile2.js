@@ -78,7 +78,7 @@ function RegisterProfile() {
         <hr/>
         <ul style={{ textAlign: "center", marginBottom: "30px" }}>
           <li style={{ display: "flex" }}>
-            <label className='form-label FormLabel'>名前: </label>
+            <label className='form-label FormLabel fw-bolder'>名前: </label>
             <input
               type="text"
               name="name"
@@ -90,21 +90,22 @@ function RegisterProfile() {
             />
           </li>
           <li style={{ display: "flex" }}>
-            <label className='FormLabel'>属性: </label>
+            <label className='FormLabel fw-bolder'>属性: </label>
             <div style={{ marginRight: "20px" }}>
-              <label>
+              <label className='fw-bolder'>
                 <input
                   className='form-check-input'
                   type="radio"
                   value="international"
                   checked={selectedOption === 'international'}
                   onChange={handleOptionChange}
+                  
                 />
                 留学生
               </label>
             </div>
             <div>
-              <label>
+              <label className='fw-bolder'>
                 <input
                   type="radio"
                   className='form-check-input'
@@ -117,7 +118,7 @@ function RegisterProfile() {
             </div>
           </li>
           <li style={{ display: "flex" }}>
-            <label className='FormLabel'>性別: </label>
+            <label className='FormLabel fw-bolder'>性別: </label>
             <input
               type="text"
               name="gender"
@@ -129,7 +130,7 @@ function RegisterProfile() {
             />
           </li>
           <li style={{ display: "flex" }}>
-            <label className='FormLabel'>国籍: </label>
+            <label className='FormLabel fw-bolder'>国籍: </label>
             <input
               type="text"
               name="nationality"
@@ -141,7 +142,7 @@ function RegisterProfile() {
             />
           </li>
           <li style={{ display: "flex" }}>
-            <label className='FormLabel'>大学: </label>
+            <label className='FormLabel fw-bolder'>大学: </label>
             <input
               type="text"
               name="university"
@@ -153,7 +154,7 @@ function RegisterProfile() {
             />
           </li>
           <li style={{ display: "flex" }}>
-            <label className='FormLabel'>学部: </label>
+            <label className='FormLabel fw-bolder'>学部: </label>
             <input
               type="text"
               name="major"
@@ -166,8 +167,8 @@ function RegisterProfile() {
           </li>
         </ul>
         <button type="submit" className="btn btn-primary">プロフィールを登録</button>
-        <button type="button" className="btn btn-primary"><Link to="/Eventregist">イベントの登録</Link></button>
-        <button type="button" className="btn btn-primary"><Link to="/LunchCompanion">一覧表示</Link></button>
+        {/* <button type="button" className="btn btn-primary"><Link to="/Eventregist">イベントの登録</Link></button>
+        <button type="button" className="btn btn-primary"><Link to="/LunchCompanion">一覧表示</Link></button> */}
         
       </form>
     </div>

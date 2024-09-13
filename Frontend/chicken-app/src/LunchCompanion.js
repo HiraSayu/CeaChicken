@@ -1,7 +1,7 @@
 // LunchCompanion.js
 import './Lunch.css';
 import React from "react";
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 import axios from 'axios'; // axiosをインポート
 import { useNavigate, Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -16,6 +16,8 @@ const LunchCompanion = () => {
   const typeContext = useContext(TypeContext);
   
   // const url = "http://localhost:8000/event/university/local";
+
+  // const url = "/event/{university_id}/{type}";
   // url = "/event/{type}";
  const url = `http://127.0.0.1:8000/event/university/${ type }`;
   
@@ -23,6 +25,7 @@ const LunchCompanion = () => {
   const GetData = () => {
 		axios.get(url).then((res) => {
 			setEvents(res.data);
+      console.log(res.data)
 		});
 	};
 
@@ -35,20 +38,28 @@ const LunchCompanion = () => {
     
 //   };
 
+function backPage(){
+    window.location.href = '/register_profile'; // 遷移したいURLを指定
+  
+}
+  
+
   return (
     <div className="container">
-      <header className="header">
-        <button className="back-button">←</button>
-        <h1 className="title">Find a lunch companion</h1>
-      </header>
+      <div style={{marginBottom:"20px", height:"120px", borderBottom:"4px solid rgba(0, 0, 0, 0.1)"}}>
+        <header className="header">
+          <button className="back-button" onClick={backPage}>←</button>
+          <h1 className="title">Find a lunch companion</h1>
+        </header>
 
-      {/* イベント新規登録のボタン */}
-      <Link style={{textDecoration: "none"}} to="/Eventregist">
-        <div className='add-event-btn' style={{width:"140px", height:"50px", marginLeft:"200px",marginBottom:"30px",padding:"15px" , display:"flex"}}>
-          <label style={{fontSize: "18px", marginRight:"10px"}}>add event</label>
-          <i style={{paddingTop:"6px"}} class="fa-solid fa-circle-plus"></i>
-        </div>
-      </Link>
+        {/* イベント新規登録のボタン */}
+        <Link style={{textDecoration: "none"}} to="/Eventregist">
+          <div className='add-event-btn' style={{width:"140px", height:"50px", marginLeft:"200px",marginBottom:"30px",padding:"15px" , display:"flex"}}>
+            <label style={{fontSize: "18px", marginRight:"10px"}}>add event</label>
+            <i style={{paddingTop:"6px"}} class="fa-solid fa-circle-plus"></i>
+          </div>
+        </Link>
+      </div>
 
 
       <ul className="results-list">

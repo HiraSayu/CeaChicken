@@ -20,9 +20,18 @@ ul li{
 }
 
 .Profile{
-  background-color: rgb(217, 217, 221);
-  height:100vh;
+  /* background-color: rgb(217, 217, 221); */
+  /* font: small-caps bold 18px/1 sans-serif; */
+  
+  height:90vh;
   width:100%;
+  margin-top:30px;  
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .Profile ul li{   

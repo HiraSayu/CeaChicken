@@ -12,6 +12,8 @@ import {FormProvider} from './contexts';
 
 import LunchCompanion from './LunchCompanion';
 import EventRegister from './EventRegister';
+import CompleteRegist from './components/CompleteRegist';
+import CompleteJoin from './components/CompleteJoin';
 
 function App() {
        return(
@@ -29,6 +31,8 @@ function App() {
                     <Route path="/profile" element={<LunchCompanion />} />
                     <Route path="/Eventregist" element={<EventRegister />} /> 
                     <Route path="/LunchCompanion/university/:type" element={<LunchCompanion />} /> 
+                    <Route path="/Complete_Regist" element={<CompleteRegist />} /> 
+                    <Route path="/Complete_Join" element={<CompleteRegist />} /> 
 
                      {/* <Home /> */}
                      {/* <Complete />  */}
