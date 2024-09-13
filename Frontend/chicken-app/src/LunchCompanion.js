@@ -41,10 +41,10 @@ function backPage(){
   
 
   return (
-    <div className="container">
+    <div className="container smartphone-frame">
       <div style={{marginBottom:"20px", height:"120px", borderBottom:"4px solid rgba(0, 0, 0, 0.1)"}}>
         <header className="header">
-          <button className="back-button" onClick={backPage}>←</button>
+          <button className="back-button" style={{marginLeft:"10px"}} onClick={backPage}>←</button>
           <h1 className="title">Find a lunch companion</h1>
         </header>
 
