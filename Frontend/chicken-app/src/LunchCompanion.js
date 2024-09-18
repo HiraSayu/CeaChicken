@@ -36,7 +36,6 @@ const LunchCompanion = () => {
 
 function backPage(){
     window.location.href = '/register_profile'; // 遷移したいURLを指定
-  
 }
   
 
